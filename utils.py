@@ -4,10 +4,15 @@ import os
 import zipfile
 import matplotlib.pyplot as plt
 import math
-import datetime
-
 
 def read_huge_market_stock_data(zip_file_path, company_ticker, date_interval):
+    """
+
+    :param zip_file_path:
+    :param company_ticker:
+    :param date_interval:
+    :return:
+    """
     # unzipping huge_stock_market_data.zip
     # if data is already unzipped then do not unzip it again
     result_path = zip_file_path[:-4]
@@ -36,14 +41,10 @@ def read_huge_market_stock_data(zip_file_path, company_ticker, date_interval):
     # convert 'Date' to datetime object
     df_stock_market['Date'] = pd.to_datetime(df_stock_market['Date'], format='%Y-%m-%d') # df_stock_market['Date'].dt.date()
 
-    # check number of rows before date filtering
-    # print("Number of rows in the dataset before filtering: ", df_stock_market.shape[0])
 
     # filtering date range according to the instructions
     df_stock_market = df_stock_market[(df_stock_market.Date >= date_interval[0]) &
                                       (df_stock_market.Date <= date_interval[1])]
-    # check number of rows after date filtering
-    # print("Number of rows in the dataset after filtering: ", df_stock_market.shape[0])
 
     # set index to 'Date'
     #df_stock_market = df_stock_market.set_index('Date')  # .sort_index(inplace=True)
@@ -53,6 +54,12 @@ def read_huge_market_stock_data(zip_file_path, company_ticker, date_interval):
 
 
 def plot_closing_price_history(close_price_col, company_name):
+    """
+
+    :param close_price_col:
+    :param company_name:
+    :return:
+    """
     # Visualize the closing price history
     plt.figure(figsize=(16, 8))
     plt.title(company_name + ' - Closing Price History')
@@ -63,6 +70,14 @@ def plot_closing_price_history(close_price_col, company_name):
 
 
 def create_train_test_split(training_data_size, training_days, dataset, scaled_data):
+    """
+
+    :param training_data_size:
+    :param training_days:
+    :param dataset:
+    :param scaled_data:
+    :return:
+    """
     # Get /Compute the number of rows to train the model on
     training_data_len = math.ceil(len(scaled_data) * training_data_size)
     # Create the scaled training data set
@@ -86,6 +101,12 @@ def create_train_test_split(training_data_size, training_days, dataset, scaled_d
     return training_data_len, x_train, y_train, x_test, y_test
 
 def create_3D_arrays(X, y):
+    """
+
+    :param X:
+    :param y:
+    :return:
+    """
     #Convert x_train and y_train to numpy arrays
     X, y = np.array(X), np.array(y)
     #Reshape the data into the shape accepted by the LSTM
@@ -93,6 +114,13 @@ def create_3D_arrays(X, y):
     return X, y
 
 def plot_result(data, training_data_len, predictions):
+    """
+
+    :param data:
+    :param training_data_len:
+    :param predictions:
+    :return:
+    """
     # Plot/Create the data for the graph
     train = data[:training_data_len]
     valid = data[training_data_len:]

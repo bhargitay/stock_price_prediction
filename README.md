@@ -1,5 +1,5 @@
 # Stock Price Prediciton
-Different solutions to stock market prediction problem.
+Suoltion to stock market prediction problem.
 
 **problem description:** predict the daily closing price of US stocks using past 60 days 
 of stock market data
@@ -14,9 +14,7 @@ a dataset of available US stock and ETF tickers with some other information.
 the full historical daily price and volume data for all US-based stocks and ETFs trading on the NYSE, NASDAQ, and 
 NYSE MKT. It's one of the best datasets of its kind you can obtain.
 
-[US Holiday Dates 2010-2020](https://data.world/jennifer-v/us-holiday-dates-2010-2020)
-
-
+[US Holiday Dates 2010-2020:](https://data.world/jennifer-v/us-holiday-dates-2010-2020)
 To make my notebook work, you should first download the datasets mentioned above to your working directory into a separate 
 folder called 'data'.
 
