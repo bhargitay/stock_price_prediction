@@ -68,6 +68,17 @@ def plot_closing_price_history(close_price_col, company_name):
     plt.ylabel('Close Price USD ($)', fontsize=18)
     # plt.show()
 
+def plot_closing_price_and_EMA(closing_price, EMA):
+    """
+
+    :return:
+    """
+    plt.figure(figsize=(16, 8))
+    plt.plot(closing_price, label='Closing Price')
+    plt.plot(EMA, label='EMA')
+    plt.title('Closng Price vs Exponential Moving Average')
+    plt.legend()
+
 
 def create_train_test_split(training_data_size, training_days, dataset, scaled_data):
     """
@@ -113,6 +124,9 @@ def create_3D_arrays(X, y):
     X = np.reshape(X, (X.shape[0],X.shape[1],1))
     return X, y
 
+
+
+
 def plot_result(data, training_data_len, predictions):
     """
 
@@ -132,4 +146,4 @@ def plot_result(data, training_data_len, predictions):
     plt.ylabel('Close Price USD ($)', fontsize=18)
     plt.plot(train['Close'])
     plt.plot(valid[['Close', 'Predictions']])
-    plt.legend(['Train', 'Val', 'Predictions'], loc='lower right')
+    plt.legend(['Train', 'Test', 'Predictions'], loc='lower right')
