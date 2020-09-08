@@ -17,8 +17,6 @@ For detailed information, click on the name of the dataset.<br>
 
 To run my notebook, you should first download both datasets to the ../data/ folder. Do not unzip the *Huge Stock Market Dataset*.
 
-
-
-
-
+## Result
+![Stock Market Price Prediction](img/price_predictions.png)
 
