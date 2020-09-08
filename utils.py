@@ -136,14 +136,15 @@ def plot_result(dataset: pd.DataFrame, training_data_len: int, predictions: np.a
     :return: A plot with the real and predicted values.
     """
     # Plot/Create the data for the graph
-    train = dataset[:training_data_len]
+    train_close = dataset[:training_data_len][['Close']]
     valid = dataset[training_data_len:]
     valid['Predictions'] = predictions
+    valid_close_pred = valid[['Close', 'Predictions']]
     # Visualize the data
     plt.figure(figsize=(16, 8))
     plt.title('Model')
     plt.xlabel('Date', fontsize=18)
     plt.ylabel('Close Price USD ($)', fontsize=18)
-    plt.plot(train['Close'])
-    plt.plot(valid[['Close', 'Predictions']])
+    plt.plot(train_close)
+    plt.plot(valid_close_pred)
     plt.legend(['Train', 'Test', 'Predictions'], loc='lower right')
