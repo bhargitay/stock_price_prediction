@@ -139,12 +139,12 @@ def plot_result(dataset: pd.DataFrame, training_data_len: int, predictions: np.a
     train_close = dataset[:training_data_len][['Close']]
     valid = dataset[training_data_len:]
     valid['Predictions'] = predictions
-    valid_close_pred = valid[['Close', 'Predictions']]
     # Visualize the data
     plt.figure(figsize=(16, 8))
     plt.title('Model')
     plt.xlabel('Date', fontsize=18)
     plt.ylabel('Close Price USD ($)', fontsize=18)
-    plt.plot(train_close)
-    plt.plot(valid_close_pred)
+    plt.plot(train_close, 'royalblue')
+    plt.plot(valid['Close'], 'lightsteelblue')
+    plt.plot(valid['Predictions'], 'indianred')
     plt.legend(['Train', 'Test', 'Predictions'], loc='lower right')
