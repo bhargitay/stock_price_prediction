@@ -149,6 +149,6 @@ def plot_result(dataset: pd.DataFrame, training_data_len: int, predictions: np.a
     plt.xlabel('Date', fontsize=18)
     plt.ylabel('Close Price USD ($)', fontsize=18)
     plt.plot(train_close, 'tab:blue')
-    plt.plot(valid['Close'], 'tab:grey')
+    plt.plot(valid['Close'], linestyle=':', color='tab:blue')
     plt.plot(valid['Predictions'], 'tab:orange')
     plt.legend(['Train', 'Test', 'Predictions'], loc='lower right')
