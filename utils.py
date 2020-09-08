@@ -64,10 +64,10 @@ def plot_closing_price_history(close_price_col: pd.Series, company_name: str):
     :return: A plot of closing price history.
     """
     plt.figure(figsize=(16, 8))
-    plt.title(company_name + ' - Closing Price History')
+    plt.title(company_name + ' - Closing Price History', fontsize=18)
     plt.plot(close_price_col)
-    plt.xlabel('Date', fontsize=18)
-    plt.ylabel('Close Price USD ($)', fontsize=18)
+    plt.xlabel('Date', fontsize=12)
+    plt.ylabel('Closing Price (USD)', fontsize=12)
 
 
 def plot_closing_price_and_EMA(closing_price: pd.Series, EMA: pd.Series):
@@ -81,7 +81,9 @@ def plot_closing_price_and_EMA(closing_price: pd.Series, EMA: pd.Series):
     plt.figure(figsize=(16, 8))
     plt.plot(closing_price, label='Closing Price')
     plt.plot(EMA, label='EMA')
-    plt.title('Closing Price vs Exponential Moving Average')
+    plt.title('Closing Price vs Exponential Moving Average', fontsize=18)
+    plt.xlabel('Date', fontsize=12)
+    plt.ylabel('Closing Price (USD)', fontsize=12)
     plt.legend()
 
 
@@ -145,10 +147,10 @@ def plot_result(dataset: pd.DataFrame, training_data_len: int, predictions: np.a
     valid['Predictions'] = predictions
     # Visualize the data
     plt.figure(figsize=(16, 8))
-    plt.title('LSTM Predictions')
-    plt.xlabel('Date', fontsize=18)
-    plt.ylabel('Close Price USD', fontsize=18)
+    plt.title('LSTM Predictions', fontsize=18)
     plt.plot(train_close, 'tab:blue')
     plt.plot(valid['Close'], linestyle=':', color='tab:blue')
     plt.plot(valid['Predictions'], 'tab:orange')
+    plt.xlabel('Date', fontsize=12)
+    plt.ylabel('Closing Price (USD)', fontsize=12)
     plt.legend(['Train', 'Test', 'Predictions'], loc='lower right')
