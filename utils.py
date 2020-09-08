@@ -49,8 +49,9 @@ def read_huge_market_stock_data(zip_file_path: str, company_ticker: str, date_in
     # filtering date range according to the date_interval parameter
     df_stock_market = df_stock_market[(df_stock_market.Date >= date_interval[0]) &
                                       (df_stock_market.Date <= date_interval[1])]
-    # set 'Date' to index
-    df_stock_market.sort_index(inplace=True)
+
+    #df_stock_market.sort_index(inplace=True)
+    df_stock_market.set_index("Date", inplace=True)
 
     return df_stock_market
 
