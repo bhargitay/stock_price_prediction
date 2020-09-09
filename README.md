@@ -20,3 +20,14 @@ To run my notebook, you should first download both datasets to the ../data/ fold
 ## Result
 ![Stock Market Price Prediction](img/price_predictions.png)
 
+## Package versions
+
+```
+Package                Version
+---------------------- -------------------
+Keras                  2.3.1
+matplotlib             3.3.1
+numpy                  1.19.1
+pandas                 1.1.1
+scikit-learn           0.23.2
+```
